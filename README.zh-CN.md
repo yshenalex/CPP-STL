@@ -249,8 +249,6 @@ g++ -std=c++11 -o test_bitset bitset/test.cc && ./test_bitset
 | `array` | 🔜 |
 | `forward_list` | 🔜 |
 | 泛型算法（`sort`、`find`、`copy`） | 🔜 |
-| 智能指针 | 🔜 |
-| 内存分配器 | 🔜 |
 
 ---
 

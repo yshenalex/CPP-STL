@@ -249,8 +249,6 @@ g++ -std=c++11 -o test_bitset bitset/test.cc && ./test_bitset
 | `array` | 🔜 |
 | `forward_list` | 🔜 |
 | Generic algorithms (`sort`, `find`, `copy`) | 🔜 |
-| Smart pointers | 🔜 |
-| Allocators | 🔜 |
 
 ---
 
