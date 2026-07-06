@@ -4,11 +4,30 @@
 namespace mystl
 {
 
+	/**
+	 * @brief list的结点
+	 * 
+	 * @tparam T 结点元素类型
+	 */
 	template <class T>
 	struct __list_node
 	{
+		/**
+		 * @brief 前驱结点指针
+		 * 
+		 */
 		__list_node<T> *_next;
+
+		/**
+		 * @brief 后继结点指针
+		 * 
+		 */
 		__list_node<T> *_prev;
+
+		/**
+		 * @brief 结点存储元素值
+		 * 
+		 */
 		T _val;
 
 		__list_node(const T &x = T())
@@ -17,6 +36,13 @@ namespace mystl
 		}
 	};
 
+	/**
+	 * @brief 迭代器
+	 * 
+	 * @tparam T 结点元素类型
+	 * @tparam Ref 结点元素的引用
+	 * @tparam Ptr 结点元素的指针
+	 */
 	template <class T, class Ref, class Ptr>
 	struct __list_iterator
 	{
@@ -71,36 +97,102 @@ namespace mystl
 			return *tmp;
 		}
 
+		/**
+		 * @brief 结点解引用
+		 * 
+		 * @return Ref 得到结点存储的val数值的引用
+		 */
 		Ref operator*()
 		{
 			return _node->_val;
 		}
 
+		/**
+		 * @brief 结点存储的val的地址
+		 * 
+		 * @return Ptr 结点存储的val的地址
+		 */
 		Ptr operator->()
 		{
 			return &_node->_val;
 		}
 	};
 
+	/**
+	 * @brief 模拟实现stl的list
+	 * 
+	 * @tparam _Tp list结点存储数据类型
+	 */
 	template <class _Tp>
 	class list
 	{
 	private:
+		/**
+		 * @brief list结点
+		 * 
+		 */
 		typedef __list_node<_Tp> Node;
 
 	public:
+		/**
+		 * @brief 迭代器
+		 * 
+		 */
 		typedef __list_iterator<_Tp, _Tp &, _Tp *> iterator;
+		/**
+		 * @brief const迭代器
+		 * 
+		 */
 		typedef __list_iterator<_Tp, const _Tp &, const _Tp *> const_iterator;
 
 	public:
+		/**
+		 * @brief 创建一个新的list对象
+		 * 
+		 */
 		list();
+
+		/**
+		 * @brief 创建一个新的list对象
+		 * 
+		 * @param n 需要的初始元素个数
+		 * @param x 初始存储的元素值
+		 */
 		list(int n, const _Tp &x);
+
+		/**
+		 * @brief 复制构造函数
+		 * 
+		 * @param lt 被复制的list对象
+		 */
 		list(const list<_Tp> &lt);
+
+		/**
+		 * @brief 赋值运算符重载
+		 * 
+		 * @param lt 需要赋值给当前对象的原list对象
+		 * @return list<_Tp>& 当前对象经赋值操作后新的引用
+		 */
 		list<_Tp> &operator=(const list<_Tp> lt);
+
+		/**
+		 * @brief 获取list起始结点的迭代器
+		 * 
+		 * @return iterator 迭代器
+		 */
 		iterator begin();
+
+		/**
+		 * @brief 获取list起始结点的const迭代器
+		 * 
+		 * @return const_iterator const迭代器
+		 */
 		const_iterator begin() const;
+
 		iterator end();
 		const_iterator end() const;
+
+
 		void push_back(const _Tp &x);
 		void push_front(const _Tp &x);
 		void pop_back();
