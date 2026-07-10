@@ -189,21 +189,88 @@ namespace mystl
 		 */
 		const_iterator begin() const;
 
+		/**
+		 * @brief 哨兵节点的迭代器
+		 * 
+		 * @return iterator 
+		 */
 		iterator end();
+
+		/**
+		 * @brief 哨兵节点的const迭代器
+		 * 
+		 * @return const_iterator 
+		 */
 		const_iterator end() const;
 
-
+		/**
+		 * @brief 尾插
+		 * 
+		 * @param x 需要插入进list的对象
+		 */
 		void push_back(const _Tp &x);
+
+		/**
+		 * @brief 头插
+		 * 
+		 * @param x 需要插入进list的对象
+		 */
 		void push_front(const _Tp &x);
+
+		/**
+		 * @brief 尾删
+		 * 
+		 */
 		void pop_back();
+
+		/**
+		 * @brief 头删
+		 * 
+		 */
 		void pop_front();
+
+		/**
+		 * @brief 在pos位置插入
+		 * 
+		 * @param pos 插入位置的迭代器
+		 * @param x 需要插入进list的对象
+		 * @return iterator 插入后的元素的迭代器
+		 */
 		iterator insert(iterator pos, const _Tp &x);
+
+		/**
+		 * @brief 删除pos位置的元素
+		 * 
+		 * @param pos 需要删除的位置的迭代器
+		 * @return iterator 
+		 */
 		iterator erase(iterator pos);
+
+		/**
+		 * @brief list是否为空
+		 * 
+		 * @return true 空
+		 * @return false 非空
+		 */
 		bool empty() const;
+
+		/**
+		 * @brief 清除list所有节点对象
+		 * 
+		 */
 		void clear();
+
+		/**
+		 * @brief 销毁list对象
+		 * 
+		 */
 		~list();
 
 	private:
+		/**
+		 * @brief list的哨兵节点
+		 * 
+	 	*/
 		Node *_head;
 	};
 
