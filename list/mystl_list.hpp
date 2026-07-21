@@ -55,6 +55,13 @@ namespace mystl
 		{
 		}
 
+		/**
+		 * @brief 判断是否 不是同一迭代器节点
+		 * 
+		 * @param l 
+		 * @return true 
+		 * @return false 
+		 */
 		bool operator!=(const Self &l) const
 		// 提问：括号内为什么要加const?个思：因为this指针本质是*const 类型，
 		// 而将两个元素进行比较的前提是类型要相同，因此也必须为const对象，
@@ -63,17 +70,34 @@ namespace mystl
 			return _node != l._node;
 		}
 
+		/**
+		 * @brief 判断是否是同一迭代器节点
+		 * 
+		 * @param l 
+		 * @return true 
+		 * @return false 
+		 */
 		bool operator==(const Self &l) const
 		{
 			return _node == l._node;
 		}
 
+		/**
+		 * @brief 迭代器前置++
+		 * 
+		 * @return Self& 
+		 */
 		Self &operator++()
 		{
 			_node = _node->_next;
 			return *this;
 		}
 
+		/**
+		 * @brief 迭代器后置++操作
+		 * 
+		 * @return Self 
+		 */
 		Self operator++(int)
 		{
 			// Self tmp(*this);
@@ -84,12 +108,22 @@ namespace mystl
 			return *tmp;
 		}
 
+		/**
+		 * @brief 迭代器前置--操作
+		 * 
+		 * @return Self& 
+		 */
 		Self &operator--()
 		{
 			_node = _node->_prev;
 			return *this;
 		}
 
+		/**
+		 * @brief 迭代器后置--操作
+		 * 
+		 * @return Self 
+		 */
 		Self operator--(int)
 		{
 			Self *tmp = this;
